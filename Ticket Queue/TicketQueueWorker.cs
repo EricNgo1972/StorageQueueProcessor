@@ -36,19 +36,42 @@ namespace IndexingInvoices
 
         private static Task Process_02(CloudQueueMessage pMsg)
         {
-            SPC.ServicesContainer.Get<IWaitingPanel>().Wait("Algorithm o2 ", pMsg.Id);
+            try
+            {
 
-            //Process your message here
+                SPC.ServicesContainer.Get<IWaitingPanel>().Wait("Algorithm o2 ", pMsg.Id);
+
+                //Process your message here
+
+               
+            }
+            catch (Exception ex)
+            {
+
+                SPC.ServicesContainer.Get<IAlert>().ShowError(ex);
+                throw;
+            }
 
             return Task.CompletedTask;
         }
 
         private static Task Process_01(CloudQueueMessage pMsg)
         {
+            try
+            {
             SPC.ServicesContainer.Get<IWaitingPanel>().Wait("Algorithm o1 ", pMsg.Id);
 
             //Process your message also here
             // chain up your processing unit ....
+
+
+            }
+            catch (Exception ex)
+            {
+
+                SPC.ServicesContainer.Get<IAlert>().ShowError(ex);
+                throw;
+            }
 
             return Task.CompletedTask;
         }
