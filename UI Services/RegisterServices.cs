@@ -27,13 +27,13 @@ namespace IndexingInvoices.Console_Services
 
             /// Cloud Services
             SPC.ServicesContainer.Register<IKeyVault>(new SPC.Cloud.KeyVault_Imp());
-            SPC.ServicesContainer.Register<ITable>(new SPC.Cloud.Table.TableService());
-            SPC.ServicesContainer.Register<IBlobService>(new SPC.Cloud.Blob.BlobService());
 
-            ///SPC.ServicesContainer.Register<ISendToServiceBus>(new SPC.Cloud.ServiceBus.SendToServiceBus_Imp());
-
-            ///SPC.ServicesContainer.Register<IStorageQueue>(new SPC.Cloud.Queue.QueueService());
-            ///
+            ///SPC.ServicesContainer.Register<ITable>(new SPC.Cloud.Table.TableService());
+            ///SPC.ServicesContainer.Register<IBlobService>(new SPC.Cloud.Blob.BlobService());
+            ///SPC.ServicesContainer.Register<IServiceBusFactory>(new SPC.Cloud.ServiceBus.Factory_Imp());            
+            ///SPC.ServicesContainer.Register<IEventHubFactory>(new SPC.Cloud.EventHub.Factory_Imp());            
+            ///SPC.ServicesContainer.Register<IStorageQueueFactory>(new SPC.Cloud.Queue.Factory());
+            
         }
 
     }
